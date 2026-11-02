@@ -1,0 +1,192 @@
+/* Motion only: the portfolio's existing palette, type and layout stay intact. */
+:root {
+  --motion-ease: cubic-bezier(.22, 1, .36, 1);
+  --motion-enter: 980ms;
+  --motion-distance: 48px;
+}
+
+/* The outer title responds to scroll; the inner track keeps its endless ribbon. */
+.motion-ready #hero-title.moving-name {
+  transform: translate3d(0, var(--hero-shift, 0px), 0);
+  opacity: var(--hero-opacity, 1);
+}
+html.motion-ready[data-intro="done"][data-motion="on"] :is(
+  .orbit-node, .hero-summary, .hero-intro > .eyebrow
+) {
+  opacity: var(--hero-surround-opacity, 1);
+}
+html.motion-ready[data-intro="done"][data-motion="on"] .orbit-node:is(:focus-visible, .is-dragging) {
+  opacity: 1;
+}
+.motion-ready:not([data-intro="done"]) .name-marquee {
+  animation: name-unfold 1300ms var(--motion-ease) 90ms both;
+}
+.motion-ready:not([data-intro="done"]) .hero-top,
+.motion-ready:not([data-intro="done"]) .hero-intro > .eyebrow,
+.motion-ready:not([data-intro="done"]) .hero-summary,
+.motion-ready:not([data-intro="done"]) .hero-utility,
+.motion-ready:not([data-intro="done"]) .hero-bottom {
+  animation: quiet-arrival var(--motion-enter) var(--motion-ease) both;
+}
+.motion-ready:not([data-intro="done"]) .hero-top { animation-delay: 50ms; }
+.motion-ready:not([data-intro="done"]) .hero-intro > .eyebrow { animation-delay: 180ms; }
+.motion-ready:not([data-intro="done"]) .hero-summary { animation-delay: 420ms; }
+.motion-ready:not([data-intro="done"]) .hero-utility { animation-delay: 620ms; }
+.motion-ready:not([data-intro="done"]) .hero-bottom { animation-delay: 740ms; }
+.motion-ready:not([data-intro="done"]) .orbit-node {
+  animation: paper-arrival 1050ms var(--motion-ease) var(--intro-delay, 360ms) both;
+}
+
+@keyframes name-unfold {
+  from {
+    opacity: 0;
+    clip-path: inset(0 0 100% 0);
+    transform: translate3d(0, 40px, 0);
+  }
+  to {
+    opacity: 1;
+    clip-path: inset(0 0 0 0);
+    transform: translate3d(0, 0, 0);
+  }
+}
+@keyframes quiet-arrival {
+  from { opacity: 0; transform: translate3d(0, 18px, 0); }
+  to { opacity: 1; transform: translate3d(0, 0, 0); }
+}
+@keyframes paper-arrival {
+  from { opacity: 0; filter: blur(3px); }
+  to { opacity: 1; filter: blur(0); }
+}
+
+/* Scroll position drives both directions, so returning to a section replays it. */
+.motion-ready .motion-reveal {
+  opacity: var(--reveal-opacity, 0);
+  transform: translate3d(var(--reveal-x, 0px), var(--reveal-y, var(--motion-distance)), 0);
+  transition: none;
+}
+.motion-ready .motion-child {
+  opacity: var(--child-opacity, 1);
+  transform: translate3d(0, var(--child-y, 0px), 0);
+  transition: none;
+}
+.motion-ready .motion-reveal:focus-within,
+.motion-ready .motion-reveal:focus-within .motion-child {
+  opacity: 1;
+  transform: none;
+  transition-delay: 0ms;
+}
+
+/* Image movement is clipped by the existing frames, without changing their size. */
+.motion-ready .motion-parallax {
+  transform: translate3d(0, var(--scroll-y, 0px), 0) scale(1.035);
+  transform-origin: center;
+}
+.motion-ready .motion-surface {
+  transform-origin: center;
+  backface-visibility: hidden;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .motion-ready[data-motion="on"] :is(.project-media, .paper-teaser-link).motion-surface {
+    transform: perspective(1100px)
+      translate3d(var(--pointer-x, 0px), calc(var(--pointer-y, 0px) + var(--surface-lift, 0px)), 0)
+      rotateX(var(--tilt-x, 0deg)) rotateY(var(--tilt-y, 0deg));
+    transition: transform 550ms var(--motion-ease);
+  }
+  .motion-ready[data-motion="on"] :is(.project-media, .paper-teaser-link).motion-surface:is(.is-pointing, :focus-visible) {
+    --surface-lift: -4px;
+  }
+  .motion-ready[data-motion="on"] .portrait-frame.motion-surface {
+    transform: translate3d(var(--pointer-x, 0px), var(--pointer-y, 0px), 0);
+    transition: transform 650ms var(--motion-ease);
+  }
+  .motion-ready[data-motion="on"] .hero-work {
+    translate: 0 0;
+    transition: translate 450ms var(--motion-ease);
+  }
+  .motion-ready[data-motion="on"] .hero-work:is(:hover, :focus-visible) {
+    translate: 0 -4px;
+  }
+  .motion-ready[data-motion="on"] .text-link > span,
+  .motion-ready[data-motion="on"] .outline-link > span,
+  .motion-ready[data-motion="on"] .hero-cv > span {
+    transition: transform 450ms var(--motion-ease);
+  }
+  .motion-ready[data-motion="on"] :is(.text-link, .outline-link, .hero-cv):is(:hover, :focus-visible) > span {
+    transform: translate3d(3px, -3px, 0);
+  }
+  .motion-ready[data-motion="on"] .project-title {
+    transition: transform 450ms var(--motion-ease);
+  }
+  .motion-ready[data-motion="on"] .project-title:is(:hover, :focus-visible) {
+    transform: translate3d(4px, 0, 0);
+  }
+}
+
+/* Background tabs pause decorative loops and the opening choreography. */
+.motion-ready[data-motion="paused"] :is(
+  .name-marquee, .name-track, .orbit-node, .hero-top,
+  .hero-intro > .eyebrow, .hero-summary, .hero-utility, .hero-bottom,
+  .scroll-cue-icon svg
+) {
+  animation-play-state: paused;
+}
+
+/* Motion off exposes all content immediately, including unreached sections. */
+.motion-ready[data-motion="off"] :is(
+  .name-marquee, .orbit-node, .hero-top,
+  .hero-intro > .eyebrow, .hero-summary, .hero-utility, .hero-bottom
+) {
+  animation: none;
+  opacity: 1;
+  filter: none;
+}
+.motion-ready[data-motion="off"] :is(
+  .name-marquee, .hero-top, .hero-intro > .eyebrow,
+  .hero-summary, .hero-utility, .hero-bottom,
+  .motion-reveal, .motion-child, .motion-parallax, .motion-surface
+) {
+  transform: none;
+  clip-path: none;
+  transition-duration: 0s;
+  transition-delay: 0s;
+}
+.motion-ready[data-motion="off"] :is(.motion-reveal, .motion-child) { opacity: 1; }
+.motion-ready[data-motion="off"] #hero-title.moving-name { transform: none; opacity: 1; }
+.motion-ready[data-motion="off"] .name-track { animation-play-state: paused; }
+.motion-ready[data-motion="off"] .scroll-cue-icon svg { animation: none; }
+
+@media (max-width: 800px) {
+  :root { --motion-distance: 30px; --motion-enter: 820ms; }
+  .motion-ready:not([data-intro="done"]) .name-marquee { animation-duration: 1050ms; }
+  .motion-ready:not([data-intro="done"]) .hero-utility { animation-delay: 480ms; }
+  .motion-ready:not([data-intro="done"]) .hero-bottom { animation-delay: 560ms; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .motion-ready :is(
+    .name-marquee, .orbit-node, .hero-top,
+    .hero-intro > .eyebrow, .hero-summary, .hero-utility, .hero-bottom,
+    .motion-reveal, .motion-child, .motion-parallax, .motion-surface
+  ) {
+    animation: none !important;
+    transition: none !important;
+    opacity: 1 !important;
+    filter: none !important;
+    clip-path: none !important;
+  }
+  .motion-ready :is(
+    .name-marquee, .hero-top, .hero-intro > .eyebrow,
+    .hero-summary, .hero-utility, .hero-bottom,
+    .motion-reveal, .motion-child, .motion-parallax, .motion-surface
+  ) { transform: none !important; }
+  .motion-ready #hero-title.moving-name { transform: none !important; opacity: 1 !important; }
+}
+
+@media print {
+  .motion-ready :is(.motion-reveal, .motion-child, .motion-parallax, .motion-surface) {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+}

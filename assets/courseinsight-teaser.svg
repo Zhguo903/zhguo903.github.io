@@ -1,0 +1,89 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900" role="img" aria-labelledby="title description">
+  <title id="title">CourseInsight — University of Toronto course planning</title>
+  <desc id="description">10,037 official courses, 7,093 published offering records and 752 resource links. Three campus catalogues support course search, requirement comparison and attributed historical feedback. Catalogue and timetable data are an October 13, 2026 snapshot.</desc>
+  <defs>
+    <style>
+      .serif{font-family:Georgia,'Times New Roman',serif;fill:#283e4c}
+      .sans{font-family:Arial,Helvetica,sans-serif;fill:#283e4c}
+      .muted{fill:#65747b}
+      .eyebrow{font-size:17px;letter-spacing:2.4px}
+      .label{font-size:24px}
+      .body{font-size:23px}
+    </style>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto"><path d="M2 2 8 5 2 8" fill="none" stroke="#849ba7" stroke-width="1.5"/></marker>
+  </defs>
+  <rect width="1600" height="900" fill="#f9f7f2"/>
+  <path d="M64 44H1536M64 829H1536" stroke="#d6d8d1"/>
+  <text class="sans eyebrow muted" x="64" y="79">THREE CAMPUSES. A CLEARER COURSE CHOICE.</text>
+  <text class="serif" x="64" y="165" font-size="76">CourseInsight</text>
+  <text class="sans" x="67" y="207" font-size="27">University of Toronto course planning</text>
+  <g class="sans muted" text-anchor="end" font-size="17" letter-spacing="2">
+    <text x="1536" y="122">SEARCH / COMPARE / EXPLORE</text>
+    <text x="1536" y="154">PYTHON · PANDAS · DUCKDB · STREAMLIT</text>
+  </g>
+  <g transform="translate(64 245)">
+    <rect width="1472" height="115" rx="4" fill="#e9eeed"/>
+    <path d="M490 22V93M980 22V93" stroke="#c7d2d2"/>
+    <text class="serif" x="30" y="63" font-size="54">10,037</text>
+    <text class="sans label muted" x="224" y="51">official undergraduate</text>
+    <text class="sans label muted" x="224" y="82">courses</text>
+    <text class="serif" x="522" y="63" font-size="54">7,093</text>
+    <text class="sans label muted" x="686" y="51">published offering</text>
+    <text class="sans label muted" x="686" y="82">records</text>
+    <text class="serif" x="1012" y="63" font-size="54">752</text>
+    <text class="sans label muted" x="1134" y="51">learning-resource</text>
+    <text class="sans label muted" x="1134" y="82">links</text>
+  </g>
+  <text class="sans eyebrow muted" x="64" y="411">OFFICIAL CATALOGUES</text>
+  <g transform="translate(64 436)">
+    <rect width="430" height="91" rx="5" fill="#fffdfa" stroke="#d7dcd7"/>
+    <rect width="5" height="91" rx="2" fill="#4e7080"/>
+    <text class="serif" x="24" y="37" font-size="29">St. George</text>
+    <text class="sans" x="24" y="68" font-size="21" fill="#65747b">Arts &amp; Science</text>
+    <text class="sans" x="404" y="54" text-anchor="end" font-size="30">5,368</text>
+  </g>
+  <g transform="translate(64 549)">
+    <rect width="430" height="91" rx="5" fill="#fffdfa" stroke="#d7dcd7"/>
+    <rect width="5" height="91" rx="2" fill="#6a8774"/>
+    <text class="serif" x="24" y="37" font-size="29">Mississauga</text>
+    <text class="sans" x="24" y="68" font-size="21" fill="#65747b">UTM · Distribution categories</text>
+    <text class="sans" x="404" y="54" text-anchor="end" font-size="30">2,491</text>
+  </g>
+  <g transform="translate(64 662)">
+    <rect width="430" height="91" rx="5" fill="#fffdfa" stroke="#d7dcd7"/>
+    <rect width="5" height="91" rx="2" fill="#b47a60"/>
+    <text class="serif" x="24" y="37" font-size="29">Scarborough</text>
+    <text class="sans" x="24" y="68" font-size="21" fill="#65747b">UTSC · Breadth categories</text>
+    <text class="sans" x="404" y="54" text-anchor="end" font-size="30">2,178</text>
+  </g>
+  <g fill="none" stroke="#9aadb4" stroke-width="2">
+    <path d="M494 482H531V595H570" marker-end="url(#arrow)"/>
+    <path d="M494 595H531M494 708H531V595"/>
+  </g>
+  <g transform="translate(592 396)">
+    <rect width="944" height="393" rx="6" fill="#fffdfa" stroke="#d0d8d7"/>
+    <path d="M0 6Q0 0 6 0H938Q944 0 944 6V68H0Z" fill="#2d4858"/>
+    <text x="29" y="43" font-family="Arial,Helvetica,sans-serif" font-size="21" letter-spacing="1.8" fill="#faf7ef">FIND A COURSE THAT FITS</text>
+    <circle cx="906" cy="34" r="9" fill="none" stroke="#c6d6d7" stroke-width="2"/>
+    <path d="m913 41 7 7" stroke="#c6d6d7" stroke-width="2"/>
+    <g class="sans" font-size="20" text-anchor="middle">
+      <rect x="28" y="90" width="176" height="43" rx="21" fill="#eef1ed"/><text x="116" y="118">Campus</text>
+      <rect x="218" y="90" width="176" height="43" rx="21" fill="#eef1ed"/><text x="306" y="118">Course level</text>
+      <rect x="408" y="90" width="176" height="43" rx="21" fill="#eef1ed"/><text x="496" y="118">Subject</text>
+      <rect x="598" y="90" width="318" height="43" rx="21" fill="#eef1ed"/><text x="757" y="118">Breadth / Distribution</text>
+    </g>
+    <g class="sans">
+      <text x="28" y="183" font-size="20" fill="#a46d53">01</text>
+      <text x="76" y="183" font-size="25">Compare the requirements</text>
+      <text x="76" y="214" class="body muted">Prerequisites, exclusions and published offerings.</text>
+      <path d="M28 235H916" stroke="#e1e3dc"/>
+      <text x="28" y="271" font-size="20" fill="#a46d53">02</text>
+      <text x="76" y="271" font-size="25">Read the evidence</text>
+      <text x="76" y="302" class="body muted">Historical surveys, personal reviews and source links.</text>
+      <path d="M28 323H916" stroke="#e1e3dc"/>
+      <text x="28" y="361" font-size="20" fill="#a46d53">03</text>
+      <text x="76" y="361" font-size="25">Find materials. Export your shortlist.</text>
+    </g>
+  </g>
+  <text class="sans muted" x="64" y="862" font-size="18">Catalogue &amp; timetable: Oct 13, 2026 · Feedback &amp; resources: Oct 14, 2026 · Snapshot data, not live seat availability.</text>
+</svg>
